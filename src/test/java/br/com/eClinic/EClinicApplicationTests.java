@@ -1,10 +1,10 @@
-package br.com.eClinc.eClinic._api;
+package br.com.eClinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class EClinicApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -8,10 +8,10 @@
 		<version>3.3.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.eClinc+</groupId>
-	<artifactId>eClinic_api</artifactId>
+	<groupId>br.com</groupId>
+	<artifactId>eClinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eClinic_api</name>
+	<name>eClinic</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
