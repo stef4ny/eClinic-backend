@@ -5,8 +5,8 @@ services:
     image: postgres:9.6
     restart: always
     environment:
-      POSTGRES_PASSWORD: eClinc+
-      POSTGRES_DB: eClinc+
+      POSTGRES_PASSWORD: eclinc
+      POSTGRES_DB: eclinc
     ports:
       - 5436:5432
     volumes:
