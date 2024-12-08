@@ -22,6 +22,8 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Medico extends EntidadeAuditavel{
+  
+  
 
   @Column
   private String nomeCompleto;
@@ -49,8 +51,5 @@ public class Medico extends EntidadeAuditavel{
 
   @Column
   private String crm;
-
- 
-
 
 }

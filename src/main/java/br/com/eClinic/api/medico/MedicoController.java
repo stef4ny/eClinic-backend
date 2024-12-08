@@ -21,7 +21,7 @@ public class MedicoController {
 
 
      @PostMapping
-    public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
+    public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest)throws Exception {
         Medico medico = medicoService.save(medicoRequest.build());
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }
