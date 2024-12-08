@@ -70,31 +70,30 @@ public class MedicoService {
     }
 
     private boolean validarNomeCompleto(String nomeCompleto) {
-        String regex = "^[A-Za-z\\s]+$"; // Somente letras e espaços
+        String regex = "^[A-Za-z\\s]+$"; // somente letras e espaços
         return nomeCompleto.matches(regex);
     }
 
     private boolean validarSenha(String senha) {
-        String regex = "^[A-Za-z0-9]{8,}$"; // Pelo menos 8 caracteres, somente letras e números
+        String regex = "^[A-Za-z0-9]{8,}$"; // pelo menos 8 caracteres, somente letras e números
         return senha.matches(regex);
     }
 
     private boolean validarDataNascimento(LocalDate dataNascimento) {
-        return dataNascimento != null && dataNascimento.isBefore(LocalDate.now()); // A data de nascimento deve ser
-                                                                                   // antes de hoje
+        return dataNascimento != null && dataNascimento.isBefore(LocalDate.now()); // A data de nascimento deve ser  antes de hoje
+                                                                                   
     }
 
     private boolean validarEmail(String email) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Formato de
-                                                                                                          // e-mail
-                                                                                                          // válido
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Formato deemail válido
+                                                                                                          
         return email != null && email.matches(regex);
     }
 
     private boolean validarEnderecoCidade(String cidade) {
-        return cidade != null && cidade.length() >= 3 && cidade.length() <= 50; // Cidade deve ter entre 3 e 50
-                                                                                // caracteres
+        return cidade != null && cidade.length() >= 3 && cidade.length() <= 50; // Cidade deve ter entre 3 e 50 caraccteres
     }
+                                                                               
 
     private boolean validarEnderecoUf(String uf) {
         String regex = "^[A-Za-z]{2}$"; // UF deve ter exatamente 2 caracteres
@@ -106,7 +105,7 @@ public class MedicoService {
     }
 
     private boolean validarEspecialidades(String especialidades) {
-        return especialidades != null && especialidades.length() <= 200; // Especialidades não pode ter mais que 200
-                                                                         // caracteres
+        return especialidades != null && especialidades.length() <= 200; // Especialidades não pode ter mais que 200 caracteres
+                                                                         
     }
 }

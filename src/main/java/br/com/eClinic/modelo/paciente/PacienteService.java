@@ -49,7 +49,7 @@ public class PacienteService {
             throw new IllegalArgumentException("Nome da cidade inválido. A cidade deve ter entre 3 e 50 caracteres.");
         }
 
-        // Validar UF
+        
         if (!validarEnderecoUf(paciente.getEnderecoUf())) {
             throw new IllegalArgumentException("UF inválido. A UF deve ter exatamente 2 caracteres.");
         }
@@ -57,36 +57,36 @@ public class PacienteService {
 
    
     private boolean validarNomeCompleto(String nomeCompleto) {
-        String regex = "^[A-Za-z\\s]+$"; // Somente letras e espaços
+        String regex = "^[A-Za-z\\s]+$"; // somente letras e espaços
         return nomeCompleto.matches(regex);
     }
 
    
     private boolean validarDataNascimento(LocalDate dataNascimento) {
-        return dataNascimento != null && dataNascimento.isBefore(LocalDate.now()); // A data de nascimento deve ser antes de hoje
+        return dataNascimento != null && dataNascimento.isBefore(LocalDate.now()); //a data de nascimento deve ser antes de hoje
     }
 
     
     private boolean validarCpf(String cpf) {
-        String regex = "^\\d{11}$"; // O CPF deve ter exatamente 11 dígitos numéricos
+        String regex = "^\\d{11}$"; // o CPF deve ter exatamente 11 dígitos numéricos
         return cpf != null && cpf.matches(regex);
     }
 
     // Validação do email
     private boolean validarEmail(String email) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; // Formato de e-mail válido
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"; //formato de Email válido
         return email != null && email.matches(regex);
     }
 
    
     private boolean validarSenha(String senha) {
-        String regex = "^[A-Za-z0-9]{8,}$"; // Pelo menos 8 caracteres, somente letras e números
+        String regex = "^[A-Za-z0-9]{8,}$"; //pelo menos 8 caracteres, somente letras e números
         return senha != null && senha.matches(regex);
     }
 
     
     private boolean validarEnderecoCidade(String cidade) {
-        return cidade != null && cidade.length() >= 3 && cidade.length() <= 50; // Cidade deve ter entre 3 e 50 caracteres
+        return cidade != null && cidade.length() >= 3 && cidade.length() <= 50; //cidade deve ter entre 3 e 50 caracteres
     }
 
    
