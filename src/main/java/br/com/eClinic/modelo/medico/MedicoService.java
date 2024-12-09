@@ -12,12 +12,12 @@ import jakarta.transaction.Transactional;
 @Service
 public class MedicoService   {
     @Autowired
-   private MedicoRepository repository;
+    private MedicoRepository repository;
 
-   @Transactional
-   public Medico save(Medico medico) {
+    @Transactional
+    public Medico save(Medico medico) {
 
-       medico.setHabilitado(Boolean.TRUE);
-       return repository.save(medico);
-   }
+        medico.setHabilitado(Boolean.TRUE);
+        return repository.save(medico);
+    }
 }

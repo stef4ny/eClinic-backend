@@ -44,9 +44,4 @@ public class Paciente extends EntidadeAuditavel {
 
   @Column
   private String enderecoUf;
-
-  
-
-
- 
 }
