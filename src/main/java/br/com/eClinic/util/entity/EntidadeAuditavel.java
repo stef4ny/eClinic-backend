@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Version;
 
-public class EntidadeAuditavel {
+public class EntidadeAuditavel extends EntidadeNegocio {
     @JsonIgnore
     @Version
     private Long versao;
