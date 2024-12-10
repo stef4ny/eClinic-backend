@@ -13,9 +13,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        // Aqui você deve implementar a lógica de autenticação e retornar um token JWT ou a resposta desejada.
+       
         
-        // Exemplo simplificado:
+     
         if (request.getUsername().equals("medico")) {
             return ResponseEntity.ok(new AuthResponse("Login bem-sucedido como médico!"));
         } else if (request.getUsername().equals("paciente")) {

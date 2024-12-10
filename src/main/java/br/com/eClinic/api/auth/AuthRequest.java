@@ -10,10 +10,9 @@ public class AuthRequest {
     @NotBlank(message = "A senha é obrigatória")
     private String password;
 
-    // Construtor padrão
+   
     public AuthRequest() {}
 
-    // Getters e Setters
     public String getUsername() {
         return username;
     }
