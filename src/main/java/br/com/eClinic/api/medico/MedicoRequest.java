@@ -40,11 +40,12 @@ public class MedicoRequest {
   public Medico build() {
 
     return Medico.builder()
-    .nomeCompleto(nomeCompleto) 
-    .dataNascimento(dataNascimento) 
-    .email(email) 
-    .senha(senha) 
-    .enderecoCidade(enderecoCidade) 
+    .nomeCompleto(nomeCompleto)
+    .dataNascimento(dataNascimento)
+    .email(email)
+    .senha(senha)
+    .enderecoCidade(enderecoCidade)
+    .enderecoUf(enderecoUf)
     .descricao(descricao)
     .especialidades(especialidades)
     .crm(crm)

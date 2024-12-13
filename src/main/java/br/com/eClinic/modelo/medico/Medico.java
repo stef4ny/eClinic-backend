@@ -50,7 +50,4 @@ public class Medico extends EntidadeAuditavel{
   @Column
   private String crm;
 
- 
-
-
 }

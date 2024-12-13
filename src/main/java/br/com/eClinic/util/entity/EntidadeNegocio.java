@@ -1,5 +1,7 @@
 package br.com.eClinic.util.entity;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -16,12 +18,14 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode(of = { "id" })
 @MappedSuperclass
-public class EntidadeNegocio {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+public abstract class EntidadeNegocio implements Serializable {
 
-    @JsonIgnore
-    @Column
-    private Boolean habilitado;
+   @Id
+   @GeneratedValue(strategy = GenerationType.SEQUENCE)
+   private Long id;
+
+   @JsonIgnore
+   @Column
+   private Boolean habilitado;
+
 }
