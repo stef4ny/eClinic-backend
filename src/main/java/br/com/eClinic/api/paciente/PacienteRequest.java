@@ -1,7 +1,11 @@
 package br.com.eClinic.api.paciente;
 
 import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+
+
 import br.com.eClinic.modelo.paciente.Paciente;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,7 +36,6 @@ public class PacienteRequest {
   private String cpf;
 
 
-
   public Paciente build() {
 
     return Paciente.builder()
@@ -47,4 +50,3 @@ public class PacienteRequest {
         
 }
 }
-

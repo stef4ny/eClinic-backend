@@ -17,18 +17,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MedicoRequest {
 
+  
   private String nomeCompleto;
 
    @JsonFormat(pattern = "dd/MM/yyyy") // mascara de campos
-  private LocalDate dataNascimento;
+   private LocalDate dataNascimento;
 
-  private String email;
+   private String email;
   
-  private String senha ;
+   private String senha ;
 
-  private String enderecoCidade;
+   private String enderecoCidade;
 
-  private String enderecoUf;
+   private String enderecoUf;
 
   private String descricao;
 

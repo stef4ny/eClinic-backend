@@ -1,8 +1,13 @@
 package br.com.eClinic.modelo.medico;
 
+
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import jakarta.transaction.Transactional;
 
 
@@ -43,5 +48,4 @@ public void update(Long id, Medico medicoAlterado) {
     
     repository.save(medico);
 }
-
 }

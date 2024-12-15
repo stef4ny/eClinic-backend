@@ -1,6 +1,8 @@
 package br.com.eClinic.modelo.paciente;
 
+
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +43,4 @@ public class PacienteService {
 
         return repository.findById(id).get();
     }
-
 }
