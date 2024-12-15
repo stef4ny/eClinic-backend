@@ -20,7 +20,7 @@ import lombok.Setter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class EntidadeAuditavel extends EntidadeNegocio {
-    
+   
    @JsonIgnore
    @Version
    private Long versao;

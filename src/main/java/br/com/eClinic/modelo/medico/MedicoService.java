@@ -19,7 +19,7 @@ public class MedicoService   {
     @Transactional
     public Medico save(Medico medico) {
 
-        medico.setHabilitado(Boolean.TRUE);
+            medico.setHabilitado(Boolean.TRUE);
         return repository.save(medico);
     }
 
