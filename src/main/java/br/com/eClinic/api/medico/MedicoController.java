@@ -16,7 +16,7 @@ import br.com.eClinic.modelo.medico.MedicoService;
 
 
 @RestController
-@RequestMapping("/api/medicos")
+@RequestMapping("/api/medico")
 @CrossOrigin
 public class MedicoController {
 
@@ -28,7 +28,6 @@ public class MedicoController {
         Medico medico = medicoService.save(medicoRequest.build());
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }
-
 
     @GetMapping
     public List<Medico> listarTodos() {

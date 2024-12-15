@@ -1,4 +1,4 @@
-package br.com.eClinic.modelo.especialidades;
+package br.com.eClinic.api.especialidade;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.eClinic.modelo.especialidades.Especialidade;
+import br.com.eClinic.modelo.especialidades.EspecialidadeService;
+
 @RestController
-@RequestMapping("/api/especialidades")
+@RequestMapping("/api/especialidade")
 public class EspecialidadeController {
- 
+
     @Autowired
     private EspecialidadeService especialidadeService;
 

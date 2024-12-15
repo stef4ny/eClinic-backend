@@ -1,8 +1,5 @@
 package br.com.eClinic.modelo.especialidades;
 
-
-
-
 import java.util.List;
 import java.util.Optional;
 

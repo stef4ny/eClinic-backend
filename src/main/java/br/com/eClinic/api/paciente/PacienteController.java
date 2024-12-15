@@ -20,8 +20,8 @@ import br.com.eClinic.modelo.paciente.PacienteService;
 @RequestMapping("/api/paciente")
 @CrossOrigin
 public class PacienteController {
-  
-  @Autowired
+
+    @Autowired
     private PacienteService pacienteService;
 
     @GetMapping
