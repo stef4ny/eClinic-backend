@@ -25,7 +25,7 @@ public class MedicoRequest {
 
    private String email;
   
-   private String senha ;
+   private String senha;
 
    private String enderecoCidade;
 
