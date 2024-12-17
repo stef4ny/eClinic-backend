@@ -18,13 +18,12 @@ import br.com.eClinic.modelo.paciente.Paciente;
 import br.com.eClinic.modelo.paciente.PacienteService;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/api/paciente")
 @CrossOrigin
 public class PacienteController {
-  
-  @Autowired
+
+    @Autowired
     private PacienteService pacienteService;
 
     @GetMapping
@@ -42,7 +41,8 @@ public class PacienteController {
         Paciente paciente = pacienteService.save(pacienteRequest.build());
         return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
     }
-        @PutMapping("/{id}")
+
+    @PutMapping("/{id}")
     public ResponseEntity<Paciente> update(@PathVariable("id") Long id, @RequestBody PacienteRequest request) {
 
         pacienteService.update(id, request.build());

@@ -14,7 +14,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity // ele torna a classe em uma entidade manipulada pela JPA
 @Table(name = "Paciente") // a partir dessa classe ele vai virar uma tabela no banco
 @SQLRestriction("habilitado = true")
@@ -27,26 +26,20 @@ public class Paciente extends EntidadeAuditavel {
   @Column(nullable = false, length = 100)
   private String nomeCompleto;
 
-
   @Column
   private LocalDate dataNascimento;
-
 
   @Column(nullable = false, unique = true)
   private String cpf;
 
-
   @Column(nullable = false, length = 100)
   private String email;
-
 
   @Column(nullable = false, length = 100)
   private String senha;
 
-
   @Column(nullable = false, length = 100)
   private String enderecoCidade;
-
 
   @Column(nullable = false, length = 2)
   private String enderecoUf;

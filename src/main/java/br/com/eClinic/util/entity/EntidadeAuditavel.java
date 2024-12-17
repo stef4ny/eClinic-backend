@@ -20,7 +20,7 @@ import lombok.Setter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class EntidadeAuditavel extends EntidadeNegocio {
-   
+
    @JsonIgnore
    @Version
    private Long versao;
@@ -40,6 +40,5 @@ public abstract class EntidadeAuditavel extends EntidadeNegocio {
    @JsonIgnore
    @Column
    private Long ultimaModificacaoPor; // Id do usuário que fez a última alteração
-
 
 }

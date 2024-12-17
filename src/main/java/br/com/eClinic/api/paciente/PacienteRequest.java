@@ -44,8 +44,6 @@ public class PacienteRequest {
   @NotBlank(message = "O CPF é de preenchimento obrigatório")
   @CPF
   private String cpf;
- 
-
 
   public Paciente build() {
 

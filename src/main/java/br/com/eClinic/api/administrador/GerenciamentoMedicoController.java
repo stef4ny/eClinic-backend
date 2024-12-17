@@ -28,12 +28,13 @@ public class GerenciamentoMedicoController {
     private GerenciamentoMedicoService gerenciamentoMedicoService;
 
     @PostMapping
-    public ResponseEntity<GerenciadorMedico> save(@RequestBody @Valid GerenciamentoMedicoRequest gerenciamentoMedicoRequest) {
+    public ResponseEntity<GerenciadorMedico> save(
+            @RequestBody @Valid GerenciamentoMedicoRequest gerenciamentoMedicoRequest) {
         GerenciadorMedico gerenciadorMedico = gerenciamentoMedicoService.save(gerenciamentoMedicoRequest.build());
         return new ResponseEntity<GerenciadorMedico>(gerenciadorMedico, HttpStatus.CREATED);
     }
 
-      @GetMapping("/filtro")// filtro no gerenciamento de medicos
+    @GetMapping("/filtro") // filtro no gerenciamento de medicos
     public List<GerenciadorMedico> filtroMedicos(@RequestParam(required = false) String especialidade,
             @RequestParam(required = false) Long id,
             @RequestParam(required = false) String nome) {

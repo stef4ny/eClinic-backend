@@ -21,39 +21,31 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Medico extends EntidadeAuditavel{
+public class Medico extends EntidadeAuditavel {
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;
 
-
   @Column
   private LocalDate dataNascimento;
-
 
   @Column(nullable = false, length = 100)
   private String email;
 
-
   @Column(nullable = false, length = 100)
   private String senha;
-
 
   @Column(nullable = false, length = 100)
   private String enderecoCidade;
 
-
   @Column(nullable = false, length = 2)
   private String enderecoUf;
-
 
   @Column(length = 100)
   private String descricao;
 
-
   @Column(nullable = false, length = 100)
   private String especialidades;
-
 
   @Column(nullable = false, unique = true)
   private String crm;

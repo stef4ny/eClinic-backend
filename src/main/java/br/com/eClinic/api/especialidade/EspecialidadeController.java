@@ -42,9 +42,11 @@ public class EspecialidadeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Especialidade> atualizarEspecialidade(@PathVariable Long id, @RequestBody Especialidade especialidade) {
+    public ResponseEntity<Especialidade> atualizarEspecialidade(@PathVariable Long id,
+            @RequestBody Especialidade especialidade) {
         Especialidade updatedEspecialidade = especialidadeService.atualizar(id, especialidade);
-        return updatedEspecialidade != null ? ResponseEntity.ok(updatedEspecialidade) : ResponseEntity.notFound().build();
+        return updatedEspecialidade != null ? ResponseEntity.ok(updatedEspecialidade)
+                : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
