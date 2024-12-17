@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eClinic.modelo.especialidades.Especialidade;
 import br.com.eClinic.modelo.especialidades.EspecialidadeService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/especialidade")
@@ -36,7 +37,7 @@ public class EspecialidadeController {
     }
 
     @PostMapping
-    public Especialidade criarEspecialidade(@RequestBody Especialidade especialidade) {
+    public Especialidade criarEspecialidade(@RequestBody @Valid Especialidade especialidade) {
         return especialidadeService.criar(especialidade);
     }
 

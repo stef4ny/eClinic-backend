@@ -22,10 +22,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class GerenciadorMedico extends EntidadeAuditavel{
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String nomeCompleto;
 
-    @Column
+    @Column(nullable = false, length = 100)
     private String especialidades;
 
 }

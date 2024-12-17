@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eClinic.modelo.administrador.GerenciadorMedico;
 import br.com.eClinic.modelo.administrador.GerenciamentoMedicoService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/gerenciadormedicos")
@@ -27,7 +28,7 @@ public class GerenciamentoMedicoController {
     private GerenciamentoMedicoService gerenciamentoMedicoService;
 
     @PostMapping
-    public ResponseEntity<GerenciadorMedico> save(@RequestBody GerenciamentoMedicoRequest gerenciamentoMedicoRequest) {
+    public ResponseEntity<GerenciadorMedico> save(@RequestBody @Valid GerenciamentoMedicoRequest gerenciamentoMedicoRequest) {
         GerenciadorMedico gerenciadorMedico = gerenciamentoMedicoService.save(gerenciamentoMedicoRequest.build());
         return new ResponseEntity<GerenciadorMedico>(gerenciadorMedico, HttpStatus.CREATED);
     }

@@ -22,9 +22,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Especialidade extends EntidadeAuditavel {
 
-  @Column
+  @Column(nullable = false, length = 100)
   private String nome;
 
-  @Column
+  @Column(nullable = false, length = 300)
   private String descricao;
 }

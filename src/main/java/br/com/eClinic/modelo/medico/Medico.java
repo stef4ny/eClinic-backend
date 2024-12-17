@@ -23,30 +23,39 @@ import lombok.Setter;
 
 public class Medico extends EntidadeAuditavel{
 
-  @Column
+  @Column(nullable = false, length = 100)
   private String nomeCompleto;
+
 
   @Column
   private LocalDate dataNascimento;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String email;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String senha;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String enderecoCidade;
 
-  @Column
+
+  @Column(nullable = false, length = 2)
   private String enderecoUf;
 
-  @Column
+
+  @Column(length = 100)
   private String descricao;
 
-  @Column
+
+  @Column(nullable = false, length = 100)
   private String especialidades;
 
-  @Column
+
+  @Column(nullable = false, unique = true)
   private String crm;
+
 }
