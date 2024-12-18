@@ -28,7 +28,6 @@ public class EspecialidadeRequest {
         return Especialidade.builder()
                 .nome(nome)
                 .descricao(descricao)
-
                 .build();
     }
 }

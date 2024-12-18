@@ -2,10 +2,8 @@ package br.com.eClinic.modelo.especialidades;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import jakarta.transaction.Transactional;
 
@@ -15,7 +13,7 @@ public class EspecialidadeService {
     @Autowired
     private EspecialidadeRepository especialidadeRepository;
 
-   @Transactional
+    @Transactional
     public Especialidade save(Especialidade especialidade) {
 
         especialidade.setHabilitado(Boolean.TRUE);
@@ -38,9 +36,8 @@ public class EspecialidadeService {
         Especialidade especialidade = especialidadeRepository.findById(id).get();
         especialidade.setNome(especialidadeAlterado.getNome());
         especialidade.setDescricao(especialidadeAlterado.getDescricao());
-  
+
         especialidadeRepository.save(especialidade);
     }
 
-    
 }
