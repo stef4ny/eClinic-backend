@@ -2,9 +2,12 @@ package br.com.eClinic.modelo.medico;
 
 import java.time.LocalDate;
 import org.hibernate.annotations.SQLRestriction;
+
+import br.com.eClinic.modelo.especialidades.Especialidade;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,36 +24,33 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Medico extends EntidadeAuditavel{
+public class Medico extends EntidadeAuditavel {
 
-  @Column
+  @ManyToOne 
+  private Especialidade especialidade;
+
+  @Column(nullable = false, length = 100)
   private String nomeCompleto;
 
   @Column
   private LocalDate dataNascimento;
 
-  @Column
+  @Column(nullable = false, length = 100)
   private String email;
 
-  @Column
+  @Column(nullable = false, length = 100)
   private String senha;
 
-  @Column
+  @Column(nullable = false, length = 100)
   private String enderecoCidade;
 
-  @Column
+  @Column(nullable = false, length = 2)
   private String enderecoUf;
 
-  @Column
+  @Column(length = 100)
   private String descricao;
 
-  @Column
-  private String especialidades;
-
-  @Column
+  @Column(nullable = false, unique = true)
   private String crm;
-
- 
-
 
 }
