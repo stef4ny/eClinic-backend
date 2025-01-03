@@ -1,5 +1,6 @@
 package br.com.eClinic.api.medico;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import br.com.eClinic.modelo.especialidades.EspecialidadeService;
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.medico.MedicoService;
-
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/medicos")
@@ -25,15 +27,17 @@ import br.com.eClinic.modelo.medico.MedicoService;
 public class MedicoController {
     @Autowired
     private MedicoService medicoService;
-
-
+    
+  
     @PostMapping
-    public ResponseEntity<Medico> save(@RequestBody MedicoRequest medicoRequest) {
+    public ResponseEntity<Medico> save(@RequestBody @Valid MedicoRequest medicoRequest) {
+        
         Medico medico = medicoService.save(medicoRequest.build());
+       
         return new ResponseEntity<Medico>(medico, HttpStatus.CREATED);
     }
 
-        @GetMapping
+    @GetMapping
     public List<Medico> listarTodos() {
         return medicoService.listarTodos();
     }
@@ -43,9 +47,10 @@ public class MedicoController {
         return medicoService.obterPorID(id);
     }
 
-        @PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Medico> update(@PathVariable("id") Long id, @RequestBody MedicoRequest request) {
 
+        
         medicoService.update(id, request.build());
         return ResponseEntity.ok().build();
     }

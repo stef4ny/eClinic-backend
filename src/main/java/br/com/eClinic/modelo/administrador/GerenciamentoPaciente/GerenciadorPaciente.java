@@ -1,4 +1,4 @@
-package br.com.eClinic.modelo.especialidades;
+package br.com.eClinic.modelo.administrador.GerenciamentoPaciente;
 
 import org.hibernate.annotations.SQLRestriction;
 
@@ -12,19 +12,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "Especialidade") // a partir dessa classe ele vai virar uma tabela no banco
+@Table(name = "GerenciadorPaciente")
 @SQLRestriction("habilitado = true")
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Especialidade extends EntidadeAuditavel {
+public class GerenciadorPaciente  extends EntidadeAuditavel{
 
   @Column(nullable = false, length = 100)
-  private String nome;
-
-  @Column(nullable = false, length = 300)
-  private String descricao;
+  private String nomeCompleto;
+  
 }

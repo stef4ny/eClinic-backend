@@ -1,10 +1,11 @@
 package br.com.eClinic.modelo.especialidades;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class EspecialidadeService {
@@ -12,28 +13,32 @@ public class EspecialidadeService {
     @Autowired
     private EspecialidadeRepository especialidadeRepository;
 
-    public List<Especialidade> listarTodas() {
-        return especialidadeRepository.findAll();
-    }
+    @Transactional
+    public Especialidade save(Especialidade especialidade) {
 
-    public Optional<Especialidade> buscarPorId(Long id) {
-        return especialidadeRepository.findById(id);
-    }
-
-    public Especialidade criar(Especialidade especialidade) {
+        especialidade.setHabilitado(Boolean.TRUE);
         return especialidadeRepository.save(especialidade);
     }
 
-    public Especialidade atualizar(Long id, Especialidade especialidade) {
-        if (especialidadeRepository.existsById(id)) {
-            especialidade.setId(id);
-            return especialidadeRepository.save(especialidade);
-        }
-        return null;
+    public List<Especialidade> listarTodos() {
+
+        return especialidadeRepository.findAll();
     }
 
-    public void deletar(Long id) {
-        especialidadeRepository.deleteById(id);
+    public Especialidade obterPorID(Long id) {
+        return especialidadeRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Especialidade não encontrada com o ID: " + id));
     }
+    
+
+    @Transactional
+    public void update(Long id, Especialidade especialidadeAlterado) {
+
+        Especialidade especialidade = especialidadeRepository.findById(id).get();
+        especialidade.setNome(especialidadeAlterado.getNome());
+        especialidade.setDescricao(especialidadeAlterado.getDescricao());
+
+        especialidadeRepository.save(especialidade);
+    }
+
 }
-
