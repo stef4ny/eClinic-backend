@@ -26,9 +26,10 @@ public class EspecialidadeService {
     }
 
     public Especialidade obterPorID(Long id) {
-
-        return especialidadeRepository.findById(id).get();
+        return especialidadeRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Especialidade não encontrada com o ID: " + id));
     }
+    
 
     @Transactional
     public void update(Long id, Especialidade especialidadeAlterado) {

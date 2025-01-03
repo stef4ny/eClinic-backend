@@ -1,4 +1,4 @@
-package br.com.eClinic.api.administrador;
+package br.com.eClinic.api.administrador.gerenciadorMedico;
 
 import java.util.List;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.eClinic.modelo.administrador.GerenciadorMedico;
-import br.com.eClinic.modelo.administrador.GerenciamentoMedicoService;
+import br.com.eClinic.modelo.administrador.GerenciamentoMedico.GerenciadorMedico;
+import br.com.eClinic.modelo.administrador.GerenciamentoMedico.GerenciamentoMedicoService;
 import jakarta.validation.Valid;
 
 @RestController

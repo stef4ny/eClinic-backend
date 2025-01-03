@@ -32,7 +32,7 @@ public class MedicoService {
     public void update(Long id, Medico medicoAlterado) {
 
         Medico medico = repository.findById(id).get();
-        medico.setEspecialidade(medicoAlterado.getEspecialidade());
+        
         medico.setNomeCompleto(medicoAlterado.getNomeCompleto());
         medico.setDataNascimento(medicoAlterado.getDataNascimento());
         medico.setEmail(medicoAlterado.getEmail());

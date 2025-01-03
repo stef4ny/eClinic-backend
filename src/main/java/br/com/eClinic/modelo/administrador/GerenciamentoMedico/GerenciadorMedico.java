@@ -1,4 +1,4 @@
-package br.com.eClinic.modelo.administrador;
+package br.com.eClinic.modelo.administrador.GerenciamentoMedico;
 
 import org.hibernate.annotations.SQLRestriction;
 

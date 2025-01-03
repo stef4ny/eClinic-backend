@@ -1,8 +1,8 @@
-package br.com.eClinic.api.administrador;
+package br.com.eClinic.api.administrador.gerenciadorMedico;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.eClinic.modelo.administrador.GerenciadorMedico;
+import br.com.eClinic.modelo.administrador.GerenciamentoMedico.GerenciadorMedico;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
