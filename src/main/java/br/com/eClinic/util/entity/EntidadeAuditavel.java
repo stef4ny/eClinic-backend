@@ -15,27 +15,6 @@ import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
 
-<<<<<<< HEAD
-@Getter
-@Setter
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public abstract class EntidadeAuditavel extends EntidadeNegocio {
-    
-   @JsonIgnore
-   @Version
-   private Long versao;
-
-   @JsonIgnore
-   @CreatedDate
-   private LocalDate dataCriacao;
-
-   @JsonIgnore
-   @LastModifiedDate
-   private LocalDate dataUltimaModificacao;
-
-   @JsonIgnore
-=======
 
 @Getter
 @Setter
@@ -56,7 +35,6 @@ public abstract class EntidadeAuditavel extends EntidadeNegocio {
    private LocalDate dataUltimaModificacao;
 
    @JsonIgnore
->>>>>>> e8814efa90fbedd7d61f2fee1c05612f71bf5431
    @Column
    private Long criadoPor; // Id do usuário que o criou
 
@@ -64,8 +42,4 @@ public abstract class EntidadeAuditavel extends EntidadeNegocio {
    @Column
    private Long ultimaModificacaoPor; // Id do usuário que fez a última alteração
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e8814efa90fbedd7d61f2fee1c05612f71bf5431
 }

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import br.com.eClinic.modelo.especialidades.EspecialidadeService;
+
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.medico.MedicoService;
 import jakarta.validation.Valid;
