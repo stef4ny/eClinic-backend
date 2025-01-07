@@ -1,11 +1,15 @@
 package br.com.eClinic.api.medico;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+
 
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import br.com.eClinic.modelo.acesso.Perfil;
+import br.com.eClinic.modelo.acesso.Usuario;
 import br.com.eClinic.modelo.medico.Medico;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -19,8 +23,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MedicoRequest {
-
-  
 
   @NotBlank(message = "O nome é de preenchimento obrigatório")
   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
@@ -49,6 +51,13 @@ public class MedicoRequest {
   @Length(min = 10, max = 10, message = "O Crm deverá ter no máximo {max} caracteres")
   private String crm;
 
+   public Usuario buildUsuario() {
+    return Usuario.builder()
+        .username(crm)
+        .password(senha)
+        .roles(Arrays.asList(new Perfil(Perfil.ROLE_FUNCIONARIO_MEDICO)))
+        .build();
+  }
 
 
   public Medico build() {

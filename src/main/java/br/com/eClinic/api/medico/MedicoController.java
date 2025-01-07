@@ -25,6 +25,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/medicos")
 @CrossOrigin
 public class MedicoController {
+    
     @Autowired
     private MedicoService medicoService;
     
