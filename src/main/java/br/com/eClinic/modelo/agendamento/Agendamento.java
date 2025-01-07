@@ -30,10 +30,9 @@ public class Agendamento extends EntidadeAuditavel {
   @Column 
   private String status;
 
-  @Column(nullable = false)
+  @Column
   private String motivo;
   
-
   @Column
   private LocalTime horarioAgendamento;
 
