@@ -14,6 +14,11 @@ public class AgendamentoService {
     @Transactional
     public Agendamento save(Agendamento agendamento) {
         agendamento.setHabilitado(Boolean.TRUE);
+
+        if (agendamento.getIdMedico() == null || agendamento.getIdPaciente() == null) {
+            throw new IllegalArgumentException("Médico e Paciente são obrigatórios para o agendamento.");
+        }
+
         return repository.save(agendamento);
     }
 
@@ -33,6 +38,13 @@ public class AgendamentoService {
         Agendamento.setMotivo(agendamentoAlterado.getMotivo());
         Agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());
         Agendamento.setUpdateData(agendamentoAlterado.getUpdateData());
+
+
+         // Verifica a data
+         if (!Agendamento.getDataAgendmento().equals(agendamentoAlterado.getDataAgendmento())) {
+            Agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
+            Agendamento.setUpdateData(agendamentoAlterado.getUpdateData());  
+        }
 
 
         repository.save(Agendamento);

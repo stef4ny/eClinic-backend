@@ -30,13 +30,25 @@ public class AgendamentoRequest {
   @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate updateData;
 
-  public Agendamento build(){
+ 
+
+  private Long idMedico;
+
+  private Long idPaciente;
+
+  public Agendamento build(LocalDate dataAnterior){
+
+    if (dataAgendmento != null && !dataAgendmento.equals(dataAnterior)) {
+      updateData = LocalDate.now();  
+   }
 
     return Agendamento.builder()
-        .dataAgendmento(dataAgendmento)
-        .status(status)
-        .horarioAgendamento(horarioAgendamento)
-        .updateData(updateData)
-        .build();
+    .dataAgendmento(dataAgendmento)
+    .status(status)
+    .horarioAgendamento(horarioAgendamento)
+    .updateData(updateData)
+    .idMedico(idMedico)
+    .idPaciente(idPaciente)
+    .build();
   }
 }

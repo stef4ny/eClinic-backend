@@ -29,7 +29,7 @@ public class AgendamentoController {
     @PostMapping
         public ResponseEntity<Agendamento> save(@RequestBody @Valid AgendamentoRequest request) {
         
-        Agendamento agendamentoNovo = request.build();
+        Agendamento agendamentoNovo = request.build(null);
         Agendamento agendamento = agendamentoService.save(agendamentoNovo);
         return new ResponseEntity<Agendamento>(agendamento, HttpStatus.CREATED);
     }
@@ -46,7 +46,9 @@ public class AgendamentoController {
 
     @PutMapping("/{id}")
         public ResponseEntity<Agendamento> update(@PathVariable("id") Long id, @RequestBody AgendamentoRequest request) {
-        agendamentoService.update(id, request.build());
+
+        Agendamento agendamentoAtualizado = request.build(agendamentoService.obterPorID(id).getDataAgendmento());
+        agendamentoService.update(id,  agendamentoAtualizado);
         return ResponseEntity.ok().build();
     }
 

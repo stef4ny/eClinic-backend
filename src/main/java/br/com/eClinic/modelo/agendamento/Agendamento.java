@@ -3,6 +3,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.hibernate.annotations.SQLRestriction;
+
+
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,7 +32,7 @@ public class Agendamento extends EntidadeAuditavel {
   @Column 
   private String status;
 
-  @Column
+  @Column  (nullable = false)
   private String motivo;
   
   @Column
@@ -38,6 +40,12 @@ public class Agendamento extends EntidadeAuditavel {
 
   @Column (nullable = false)
   private LocalDate updateData;
+
+  @Column
+  private Long idMedico;
+
+  @Column
+  private Long idPaciente;
 
 
   
