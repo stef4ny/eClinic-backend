@@ -1,7 +1,12 @@
 package br.com.eClinic.api.paciente;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import br.com.eClinic.modelo.acesso.Perfil;
+import br.com.eClinic.modelo.acesso.Usuario;
 import br.com.eClinic.modelo.paciente.Paciente;
 
 import org.hibernate.validator.constraints.Length;
@@ -42,6 +47,14 @@ public class PacienteRequest {
   @NotBlank(message = "O CPF é de preenchimento obrigatório")
   @CPF
   private String cpf;
+
+  public Usuario buildUsuario() {
+    return Usuario.builder()
+        .username(cpf)
+        .password(senha)
+        .roles(Arrays.asList(new Perfil(Perfil.ROLE_PACIENTE)))
+        .build();
+  }
 
   public Paciente build() {
 
