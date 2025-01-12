@@ -36,7 +36,8 @@ public class GerenciamentoMedicoController {
     }
 
     @GetMapping("/filtro") // filtro no gerenciamento de medicos
-    public List<GerenciadorMedico> filtroMedicos(@RequestParam(required = false) String especialidade,
+    public List<GerenciadorMedico> filtroMedicos(
+            @RequestParam(required = false) String especialidade,
             @RequestParam(required = false) Long id,
             @RequestParam(required = false) String nome) {
         return gerenciamentoMedicoService.filtroMedicos(especialidade, id, nome);
