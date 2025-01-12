@@ -2,13 +2,17 @@ package br.com.eClinic.modelo.paciente;
 
 import java.time.LocalDate;
 
+
+import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.SQLRestriction;
 
 import br.com.eClinic.modelo.acesso.Usuario;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
