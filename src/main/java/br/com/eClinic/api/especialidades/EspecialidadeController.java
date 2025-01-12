@@ -1,4 +1,4 @@
-package br.com.eClinic.api.especialidade;
+package br.com.eClinic.api.especialidades;
 
 import java.util.List;
 

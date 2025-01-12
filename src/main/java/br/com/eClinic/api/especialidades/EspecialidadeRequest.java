@@ -1,4 +1,4 @@
-package br.com.eClinic.api.especialidade;
+package br.com.eClinic.api.especialidades;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -19,15 +19,11 @@ public class EspecialidadeRequest {
     @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
     private String nome;
 
-    @NotBlank(message = "A descricao é de preenchimento obrigatorio")
-    @Length(max = 300, message = "A descricao deverá ter no máximo {max} caracteres")
-    private String descricao;
 
     public Especialidade build() {
 
         return Especialidade.builder()
                 .nome(nome)
-                .descricao(descricao)
                 .build();
     }
 }

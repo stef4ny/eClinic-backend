@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.RestController;
 import br.com.eClinic.modelo.agendamento.Agendamento;
 import br.com.eClinic.modelo.agendamento.AgendamentoService;
+import br.com.eClinic.modelo.especialidades.EspecialidadeService;
+import br.com.eClinic.modelo.medico.MedicoService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -26,11 +28,23 @@ public class AgendamentoController {
     @Autowired
     private AgendamentoService agendamentoService ;
 
+    @Autowired
+    private MedicoService medicoService;
+
+    @Autowired 
+    private EspecialidadeService especialidadeService;
+
+
     @PostMapping
         public ResponseEntity<Agendamento> save(@RequestBody @Valid AgendamentoRequest request) {
-        
-        Agendamento agendamentoNovo = request.build(null);
+
+
+        Agendamento agendamentoNovo = request.build();
+        agendamentoNovo.setMedico(medicoService.obterPorID(request.getIdMedico()));
+        agendamentoNovo.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
         Agendamento agendamento = agendamentoService.save(agendamentoNovo);
+
+
         return new ResponseEntity<Agendamento>(agendamento, HttpStatus.CREATED);
     }
 
@@ -46,9 +60,12 @@ public class AgendamentoController {
 
     @PutMapping("/{id}")
         public ResponseEntity<Agendamento> update(@PathVariable("id") Long id, @RequestBody AgendamentoRequest request) {
-
-        Agendamento agendamentoAtualizado = request.build(agendamentoService.obterPorID(id).getDataAgendmento());
-        agendamentoService.update(id,  agendamentoAtualizado);
+        
+        Agendamento agendamento = request.build();
+        agendamento.setMedico(medicoService.obterPorID(request.getIdMedico()));
+        agendamento.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
+        agendamentoService.update(id, agendamento);
+        
         return ResponseEntity.ok().build();
     }
 

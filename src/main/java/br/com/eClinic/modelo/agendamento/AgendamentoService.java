@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class AgendamentoService {
   
@@ -14,10 +15,6 @@ public class AgendamentoService {
     @Transactional
     public Agendamento save(Agendamento agendamento) {
         agendamento.setHabilitado(Boolean.TRUE);
-
-        if (agendamento.getIdMedico() == null || agendamento.getIdPaciente() == null) {
-            throw new IllegalArgumentException("Médico e Paciente são obrigatórios para o agendamento.");
-        }
 
         return repository.save(agendamento);
     }
@@ -32,23 +29,21 @@ public class AgendamentoService {
 
     @Transactional
     public void update(Long id, Agendamento agendamentoAlterado) {
-        Agendamento Agendamento = repository.findById(id).get();
-        Agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
-        Agendamento.setStatus(agendamentoAlterado.getStatus());
-        Agendamento.setMotivo(agendamentoAlterado.getMotivo());
-        Agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());
-        Agendamento.setUpdateData(agendamentoAlterado.getUpdateData());
+        Agendamento agendamento = repository.findById(id).get();
+        agendamento.setMedico(agendamentoAlterado.getMedico());
+        agendamento.setEspecialidade(agendamentoAlterado.getEspecialidade());
+        agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
+        agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());
 
 
-         // Verifica a data
-         if (!Agendamento.getDataAgendmento().equals(agendamentoAlterado.getDataAgendmento())) {
-            Agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
-            Agendamento.setUpdateData(agendamentoAlterado.getUpdateData());  
-        }
+    
 
-
-        repository.save(Agendamento);
+        repository.save(agendamento);
     }
+
+
+
+
 
     @Transactional
         public void delete(Long id) {

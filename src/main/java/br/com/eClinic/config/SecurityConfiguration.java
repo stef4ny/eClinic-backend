@@ -47,6 +47,8 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/api/gerenciadormedicos").permitAll()//remover depois
                 .requestMatchers(HttpMethod.POST, "/api/especialidade").permitAll()//remover depois
                 .requestMatchers(HttpMethod.POST, "/api/gerenciadorPaciente").permitAll()//remover depois
+                .requestMatchers(HttpMethod.POST, "/api/agendamento").permitAll()//remover depois
+
 
               
 

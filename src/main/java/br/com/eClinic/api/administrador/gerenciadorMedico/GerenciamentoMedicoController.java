@@ -30,6 +30,7 @@ public class GerenciamentoMedicoController {
     @PostMapping
     public ResponseEntity<GerenciadorMedico> save(
             @RequestBody @Valid GerenciamentoMedicoRequest gerenciamentoMedicoRequest) {
+                
         GerenciadorMedico gerenciadorMedico = gerenciamentoMedicoService.save(gerenciamentoMedicoRequest.build());
         return new ResponseEntity<GerenciadorMedico>(gerenciadorMedico, HttpStatus.CREATED);
     }

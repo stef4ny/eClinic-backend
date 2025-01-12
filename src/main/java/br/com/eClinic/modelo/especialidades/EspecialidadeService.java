@@ -11,34 +11,33 @@ import jakarta.transaction.Transactional;
 public class EspecialidadeService {
 
     @Autowired
-    private EspecialidadeRepository especialidadeRepository;
+    private EspecialidadeRepository repository;
 
     @Transactional
     public Especialidade save(Especialidade especialidade) {
 
         especialidade.setHabilitado(Boolean.TRUE);
-        return especialidadeRepository.save(especialidade);
+        return repository.save(especialidade);
     }
 
     public List<Especialidade> listarTodos() {
 
-        return especialidadeRepository.findAll();
+        return repository.findAll();
     }
 
     public Especialidade obterPorID(Long id) {
-        return especialidadeRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Especialidade não encontrada com o ID: " + id));
+        return repository.findById(id).get();
     }
     
 
     @Transactional
     public void update(Long id, Especialidade especialidadeAlterado) {
 
-        Especialidade especialidade = especialidadeRepository.findById(id).get();
+        Especialidade especialidade = repository.findById(id).get();
         especialidade.setNome(especialidadeAlterado.getNome());
-        especialidade.setDescricao(especialidadeAlterado.getDescricao());
 
-        especialidadeRepository.save(especialidade);
+        repository.save(especialidade);
     }
+
 
 }
