@@ -47,14 +47,12 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/api/gerenciadormedicos").permitAll()//remover depois
                 .requestMatchers(HttpMethod.POST, "/api/especialidade").permitAll()//remover depois
                 .requestMatchers(HttpMethod.POST, "/api/gerenciadorPaciente").permitAll()//remover depois
-                .requestMatchers(HttpMethod.POST, "/api/agendamento").permitAll()//remover depois
 
                 .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/gerenciadormedicos").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/especialidade").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/gerenciadorPaciente").permitAll()//remover depois, apenas para visulaizar o get no postman
-                .requestMatchers(HttpMethod.GET, "/api/agendamento").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/swagger-ui/*").permitAll()
 
