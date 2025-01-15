@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# eClinic - Telemedicina com Chatbot 🩺🤖
 
-## Introdução
-O **eClinic** é uma aplicação de telemedicina que integra um chatbot, permitindo aos usuários realizar login, cadastrar-se, agendar consultas e verificar sua agenda. A aplicação é construída utilizando **Spring Boot**, **PostgreSQL** e **Docker**, proporcionando uma solução robusta e escalável para o atendimento médico remoto.
-=======
 # eClinic+ - Telemedicina com Chatbot 🩺🤖
 
 ## Introdução
