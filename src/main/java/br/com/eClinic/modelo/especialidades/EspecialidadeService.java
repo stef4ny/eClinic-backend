@@ -40,4 +40,15 @@ public class EspecialidadeService {
     }
 
 
+    public List<Especialidade> filtrarEspecialidade(String nome) {
+
+        List<Especialidade> listaEspecialidades = repository.findAll();
+
+        if((nome != null && !"".equals(nome))){
+
+            listaEspecialidades = repository.consultarPorNome(nome);
+        }
+          return listaEspecialidades;
+    }
+
 }

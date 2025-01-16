@@ -20,7 +20,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "agendamento")
+@Table(name = "Agendamento")
 @SQLRestriction("habilitado = true")
 @Builder
 @Getter
@@ -41,5 +41,7 @@ public class Agendamento extends EntidadeAuditavel {
   
   @Column
   private LocalTime horarioAgendamento;
+
+ 
   
 }

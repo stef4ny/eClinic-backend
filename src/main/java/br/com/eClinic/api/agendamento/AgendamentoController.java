@@ -1,5 +1,7 @@
 package br.com.eClinic.api.agendamento;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+
 import br.com.eClinic.modelo.agendamento.Agendamento;
 import br.com.eClinic.modelo.agendamento.AgendamentoService;
 import br.com.eClinic.modelo.especialidades.EspecialidadeService;
@@ -35,6 +39,7 @@ public class AgendamentoController {
     private EspecialidadeService especialidadeService;
 
 
+
     @PostMapping
         public ResponseEntity<Agendamento> save(@RequestBody @Valid AgendamentoRequest request) {
 
@@ -43,6 +48,8 @@ public class AgendamentoController {
         agendamentoNovo.setMedico(medicoService.obterPorID(request.getIdMedico()));
         agendamentoNovo.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
         Agendamento agendamento = agendamentoService.save(agendamentoNovo);
+
+
 
 
         return new ResponseEntity<Agendamento>(agendamento, HttpStatus.CREATED);
@@ -65,6 +72,9 @@ public class AgendamentoController {
         agendamento.setMedico(medicoService.obterPorID(request.getIdMedico()));
         agendamento.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
         agendamentoService.update(id, agendamento);
+
+     
+
         
         return ResponseEntity.ok().build();
     }
@@ -74,5 +84,23 @@ public class AgendamentoController {
         agendamentoService.delete(id);
        return ResponseEntity.ok().build();
    }
+
+    @PostMapping("/filtrar")
+   public List<Agendamento> filtrarAgendamentos(
+           @RequestParam(value = "id", required = false) Long id,
+           @RequestParam(value = "nomeCompleto", required = false) String nomeCompleto,
+           @RequestParam(value = "nome", required = false) String nome,
+           @RequestParam(value = "dataAgendmento", required = false) LocalDate dataAgendamento,
+           @RequestParam(value = "horarioAgendamento", required = false) LocalTime horarioAgendamento ) {
+
+       return agendamentoService.filtrarAgendamentos(id, nomeCompleto, nome, dataAgendamento, horarioAgendamento );
+   }
+
+
+
 }
+
+
+
+
 

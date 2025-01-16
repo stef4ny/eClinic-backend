@@ -22,7 +22,7 @@ import br.com.eClinic.modelo.administrador.GerenciamentoPaciente.GerenciamentoPa
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("api/gerenciadorPaciente")
+@RequestMapping("/api/gerenciadorPaciente")
 @CrossOrigin
 
 public class GerenciamentoPacienteController {

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eClinic.modelo.especialidades.Especialidade;
@@ -54,6 +55,15 @@ public class EspecialidadeController {
         especialidadeService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
+
+
+     @PostMapping("/filtrar")
+        public List<Especialidade> filtrarEspecialidade(
+           @RequestParam(value = "nome", required = false) String nome) {
+
+       return especialidadeService.filtrarEspecialidade(nome);
+   }
+
 
 }
 

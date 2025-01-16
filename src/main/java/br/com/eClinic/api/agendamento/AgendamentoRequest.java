@@ -26,8 +26,7 @@ public class AgendamentoRequest {
 
   private LocalTime horarioAgendamento;
 
- /* @JsonFormat(pattern = "dd/MM/yyyy")
-  private LocalDate updateData;*/
+
 
 
   public Agendamento build(){
