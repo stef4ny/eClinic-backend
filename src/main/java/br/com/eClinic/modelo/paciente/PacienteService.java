@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import br.com.eClinic.modelo.acesso.Perfil;
 import br.com.eClinic.modelo.acesso.PerfilRepository;
 import br.com.eClinic.modelo.acesso.UsuarioService;
+import br.com.eClinic.service.EmailService;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -17,6 +18,9 @@ public class PacienteService {
 
     @Autowired
     private PerfilRepository perfilUsuarioRepository;
+
+    @Autowired
+    private EmailService emailService;
 
     @Autowired
     private PacienteRepository repository;
@@ -47,6 +51,7 @@ public class PacienteService {
         paciente.setEnderecoUf(pacienteAlterado.getEnderecoUf());
 
         repository.save(paciente);
+        emailService.enviarEmailTexto(paciente.getEmail(), "eClinc Recuperação de senha", "codigo meet");
     }
 
     public List<Paciente> listarTodos() {
