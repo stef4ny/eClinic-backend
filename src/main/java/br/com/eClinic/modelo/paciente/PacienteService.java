@@ -51,7 +51,7 @@ public class PacienteService {
         paciente.setEnderecoUf(pacienteAlterado.getEnderecoUf());
 
         repository.save(paciente);
-        emailService.enviarEmailTexto(paciente.getEmail(), "eClinc Recuperação de senha", "codigo meet");
+        emailService.enviarEmailTexto(paciente.getEmail(), "eClinc Recuperação de senha", "http://localhost:5173/recuperaçãodesenha");
     }
 
     public List<Paciente> listarTodos() {
