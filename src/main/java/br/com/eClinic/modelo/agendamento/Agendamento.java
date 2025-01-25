@@ -1,106 +1,52 @@
 package br.com.eClinic.modelo.agendamento;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
+
+import org.hibernate.annotations.SQLRestriction;
 
 
-import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import br.com.eClinic.util.entity.EntidadeAuditavel;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import br.com.eClinic.service.EmailService;  
 
+@Entity
+@Table(name = "agendamento")
+@SQLRestriction("habilitado = true")
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Agendamento extends EntidadeAuditavel {
 
+  @Column (nullable = false)
+  private LocalDate dataAgendmento;
 
+  @Column 
+  private String status;
 
-@Service
-public class AgendamentoService {
+  @Column  (nullable = false)
+  private String motivo;
   
-   @Autowired
-    private AgendamentoRepository repository;
+  @Column
+  private LocalTime horarioAgendamento;
 
-    
+  @Column (nullable = false)
+  private LocalDate updateData;
 
-    @Autowired
-    private EmailService emailService; 
+  @Column
+  private Long idMedico;
 
-    @Transactional
-public Agendamento save(Agendamento agendamento) {
-    agendamento.setHabilitado(Boolean.TRUE);
-
-    // Obtenha o e-mail do paciente associado ao agendamento
-    String email = agendamento.getPaciente().getEmail();
-    if (email == null || email.isEmpty()) {
-        throw new IllegalArgumentException("E-mail do paciente não encontrado.");
-    }
-
-    // Envia o e-mail
-    emailService.enviarEmailTexto(email, "eClinc Recuperação de senha", "http://localhost:5173/recuperaçãodesenha");
-
-    return repository.save(agendamento);
-}
-
-    public List<Agendamento> listarTodos() {
-        return repository.findAll();
-    }
-
-    public Agendamento obterPorID(Long id) {
-        return repository.findById(id).get();
-    }
-
-    @Transactional
-    public void update(Long id, Agendamento agendamentoAlterado) {
-        Agendamento agendamento = repository.findById(id).get();
-        agendamento.setMedico(agendamentoAlterado.getMedico());
-        agendamento.setEspecialidade(agendamentoAlterado.getEspecialidade());
-        agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
-        agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());
+  @Column
+  private Long idPaciente;
 
 
-    
-
-        repository.save(agendamento);
-    }
-
-
-    @Transactional
-        public void delete(Long id) {
-        Agendamento Agendamento = repository.findById(id).get();
-        Agendamento.setHabilitado(Boolean.FALSE);
-        repository.save(Agendamento);
-   }
-
-
-
-  public List<Agendamento> filtrarAgendamentos(Long id, String nomeCompleto, String nome, LocalDate dataAgendamento, LocalTime horarioAgendamento) {
-
-    List<Agendamento> listaAgendamentos = repository.findAll();
-
-   
-
-     if ((nomeCompleto != null && !"".equals(nomeCompleto)) &&
-               (nome == null || "".equals(nome)) &&
-               (dataAgendamento == null && horarioAgendamento == null)) {
-      
-        listaAgendamentos = repository.consultarPorNomeMedico(nomeCompleto);
-
-    } else if (
-        (nomeCompleto == null || "".equals(nomeCompleto)) &&
-        (nome != null && !"".equals(nome)) &&
-        (dataAgendamento == null && horarioAgendamento == null)) {
-      
-        listaAgendamentos = repository.consultarPorNome(nome);
-
-    } else if (
-        (nomeCompleto == null || "".equals(nomeCompleto)) &&
-        (nome == null || "".equals(nome)) &&
-        (dataAgendamento != null && horarioAgendamento != null)) {
-    
-        listaAgendamentos = repository.consultarPorDataEHora(dataAgendamento, horarioAgendamento);
-    }
-    return  listaAgendamentos;
-}
-
-
+  
 }

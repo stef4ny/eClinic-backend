@@ -17,24 +17,38 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AgendamentoRequest {
 
-  private Long idMedico;
-
-  private Long idEspecialidade;
-
    @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate dataAgendmento;
 
+
+  private String status;
+
+  private String motivo;
+
   private LocalTime horarioAgendamento;
 
+  @JsonFormat(pattern = "dd/MM/yyyy")
+  private LocalDate updateData;
 
+ 
 
+  private Long idMedico;
 
-  public Agendamento build(){
+  private Long idPaciente;
 
+  public Agendamento build(LocalDate dataAnterior){
+
+    if (dataAgendmento != null && !dataAgendmento.equals(dataAnterior)) {
+      updateData = LocalDate.now();  
+   }
 
     return Agendamento.builder()
     .dataAgendmento(dataAgendmento)
+    .status(status)
     .horarioAgendamento(horarioAgendamento)
+    .updateData(updateData)
+    .idMedico(idMedico)
+    .idPaciente(idPaciente)
     .build();
   }
 }
