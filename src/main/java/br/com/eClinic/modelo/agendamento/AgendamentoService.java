@@ -5,6 +5,12 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> parent of 1ee0427 (email do cliente para agendamento)
 @Service
 public class AgendamentoService {
   
