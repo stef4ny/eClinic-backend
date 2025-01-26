@@ -39,25 +39,8 @@ public class Agendamento extends EntidadeAuditavel {
 
   @Column (nullable = false)
   private LocalDate dataAgendmento;
-
-  @Column 
-  private String status;
-
-  @Column  (nullable = false)
-  private String motivo;
   
   @Column
   private LocalTime horarioAgendamento;
 
-  @Column (nullable = false)
-  private LocalDate updateData;
-
-  @Column
-  private Long idMedico;
-
-  @Column
-  private Long idPaciente;
-
-
-  
 }
