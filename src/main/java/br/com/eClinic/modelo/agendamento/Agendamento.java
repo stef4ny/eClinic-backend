@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import org.hibernate.annotations.SQLRestriction;
 
 import br.com.eClinic.modelo.medico.Medico;
+import br.com.eClinic.modelo.paciente.Paciente;
 import br.com.eClinic.modelo.especialidades.Especialidade;
 
 import br.com.eClinic.util.entity.EntidadeAuditavel;
@@ -36,6 +37,8 @@ public class Agendamento extends EntidadeAuditavel {
   @ManyToOne
   private Especialidade especialidade;
 
+  @ManyToOne
+  private Paciente paciente;
 
   @Column (nullable = false)
   private LocalDate dataAgendmento;
