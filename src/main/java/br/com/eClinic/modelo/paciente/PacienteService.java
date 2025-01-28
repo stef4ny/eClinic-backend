@@ -28,12 +28,12 @@ public class PacienteService {
     @Transactional
     public Paciente save(Paciente paciente) {
 
-        usuarioService.save(paciente.getUsuario());
+    //    usuarioService.save(paciente.getUsuario());
 
-        for (Perfil perfil : paciente.getUsuario().getRoles()) {
-            perfil.setHabilitado(Boolean.TRUE);
-            perfilUsuarioRepository.save(perfil);
-        }
+    //    for (Perfil perfil : paciente.getUsuario().getRoles()) {
+    //        perfil.setHabilitado(Boolean.TRUE);
+    //        perfilUsuarioRepository.save(perfil);
+    //    }
 
         paciente.setHabilitado(Boolean.TRUE);
         return repository.save(paciente);

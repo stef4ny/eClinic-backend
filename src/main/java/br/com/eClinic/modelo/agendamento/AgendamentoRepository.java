@@ -13,7 +13,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
  
       
       //List<Agendamento> findById(Long id); //id de agendamento
-
+      List<Agendamento> findByDataAgendmento(LocalDate dataAgendmento);
 
       @Query(value = "SELECT a FROM Agendamento a WHERE a.medico.nomeCompleto ilike %:nomeCompleto% ORDER BY a.medico.nomeCompleto")
       List<Agendamento> consultarPorNomeMedico (String nomeCompleto); //nome da entidade médico

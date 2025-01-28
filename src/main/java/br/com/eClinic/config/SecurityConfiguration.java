@@ -42,6 +42,7 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(authorize -> authorize
 
                 .requestMatchers(HttpMethod.POST, "/api/pacientes").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/chat").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/medicos").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/gerenciadormedicos").permitAll()//remover depois
@@ -52,6 +53,7 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.POST, "/api/agendamento/filtrar").permitAll()
 
                 .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()//remover depois, apenas para visulaizar o get no postman
+                .requestMatchers(HttpMethod.GET, "/api/chat").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/gerenciadormedicos").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/especialidade").permitAll()//remover depois, apenas para visulaizar o get no postman
