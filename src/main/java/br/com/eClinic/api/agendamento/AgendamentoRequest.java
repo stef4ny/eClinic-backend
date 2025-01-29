@@ -22,7 +22,7 @@ public class AgendamentoRequest {
   private Long idEspecialidade;
 
    @JsonFormat(pattern = "dd/MM/yyyy")
-  private LocalDate dataAgendmento;
+  private LocalDate dataAgendamento;
 
   private LocalTime horarioAgendamento;
 
@@ -33,7 +33,7 @@ public class AgendamentoRequest {
 
 
     return Agendamento.builder()
-    .dataAgendmento(dataAgendmento)
+    .dataAgendmento(dataAgendamento)
     .horarioAgendamento(horarioAgendamento)
     .build();
   }

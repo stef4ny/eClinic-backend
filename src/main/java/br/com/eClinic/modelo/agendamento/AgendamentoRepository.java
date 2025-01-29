@@ -7,13 +7,16 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import br.com.eClinic.modelo.especialidades.Especialidade;
 
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
- 
-      
-      //List<Agendamento> findById(Long id); //id de agendamento
       List<Agendamento> findByDataAgendmento(LocalDate dataAgendmento);
+
+      @Query("SELECT a FROM Agendamento a WHERE a.dataAgendmento = :dataAgendamento AND a.especialidade.id = :especialidadeId")
+      List<Agendamento> findByDataAndEspecialidade(@Param("dataAgendamento") LocalDate dataAgendamento, @Param("especialidadeId") Long especialidadeId);
 
       @Query(value = "SELECT a FROM Agendamento a WHERE a.medico.nomeCompleto ilike %:nomeCompleto% ORDER BY a.medico.nomeCompleto")
       List<Agendamento> consultarPorNomeMedico (String nomeCompleto); //nome da entidade médico
