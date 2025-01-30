@@ -8,7 +8,6 @@ import java.util.List;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import br.com.eClinic.service.EmailService;
 
 // import br.com.eClinic.service.EmailService;  comentado para sendEmail
 
@@ -21,14 +20,10 @@ public class AgendamentoService {
    @Autowired
     private AgendamentoRepository repository;
 
-    @Autowired
-    private EmailService emailService;
-
     @Transactional
     public Agendamento save(Agendamento agendamento) {
         agendamento.setHabilitado(Boolean.TRUE);
 
-        emailService.enviarEmailTexto(agendamento.getPaciente().getEmail(), "eClinc Recuperação de senha", "codigo meet");
         return repository.save(agendamento);
     }
 
