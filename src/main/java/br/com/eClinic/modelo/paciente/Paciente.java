@@ -29,9 +29,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Paciente extends EntidadeAuditavel {
 
-  // @OneToOne
-  // @JoinColumn(nullable = false)
-  // private Usuario usuario;
+  @OneToOne
+  @JoinColumn(nullable = false)
+  private Usuario usuario;
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;
