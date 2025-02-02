@@ -45,6 +45,7 @@ public class PacienteService {
         Paciente paciente = repository.findById(id).get();
         paciente.setNomeCompleto(pacienteAlterado.getNomeCompleto());
         paciente.setDataNascimento(pacienteAlterado.getDataNascimento());
+        paciente.setEmail(pacienteAlterado.getEmail());
         paciente.setCpf(pacienteAlterado.getCpf());
         paciente.setSenha(pacienteAlterado.getSenha());
         paciente.setEnderecoCidade(pacienteAlterado.getEnderecoCidade());
