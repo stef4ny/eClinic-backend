@@ -21,13 +21,12 @@ public class AgendamentoRequest {
 
   private Long idEspecialidade;
 
+  private Long idPaciente;
+
    @JsonFormat(pattern = "dd/MM/yyyy")
   private LocalDate dataAgendmento;
 
   private LocalTime horarioAgendamento;
-
-
-
 
   public Agendamento build(){
 

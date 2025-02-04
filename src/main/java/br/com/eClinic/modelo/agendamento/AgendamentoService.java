@@ -37,6 +37,7 @@ public class AgendamentoService {
     public void update(Long id, Agendamento agendamentoAlterado) {
         Agendamento agendamento = repository.findById(id).get();
         agendamento.setMedico(agendamentoAlterado.getMedico());
+        agendamento.setPaciente(agendamentoAlterado.getPaciente());
         agendamento.setEspecialidade(agendamentoAlterado.getEspecialidade());
         agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
         agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());

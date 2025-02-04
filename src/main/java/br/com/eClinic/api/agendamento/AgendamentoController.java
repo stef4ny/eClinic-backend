@@ -22,6 +22,7 @@ import br.com.eClinic.modelo.agendamento.Agendamento;
 import br.com.eClinic.modelo.agendamento.AgendamentoService;
 import br.com.eClinic.modelo.especialidades.EspecialidadeService;
 import br.com.eClinic.modelo.medico.MedicoService;
+import br.com.eClinic.modelo.paciente.PacienteService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -35,6 +36,9 @@ public class AgendamentoController {
     @Autowired
     private MedicoService medicoService;
 
+    @Autowired
+    private PacienteService pacienteService;
+
     @Autowired 
     private EspecialidadeService especialidadeService;
 
@@ -46,6 +50,7 @@ public class AgendamentoController {
 
         Agendamento agendamentoNovo = request.build();
         agendamentoNovo.setMedico(medicoService.obterPorID(request.getIdMedico()));
+        agendamentoNovo.setPaciente(pacienteService.obterPorID(request.getIdPaciente()));
         agendamentoNovo.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
         Agendamento agendamento = agendamentoService.save(agendamentoNovo);
 
@@ -70,6 +75,7 @@ public class AgendamentoController {
         
         Agendamento agendamento = request.build();
         agendamento.setMedico(medicoService.obterPorID(request.getIdMedico()));
+        agendamento.setPaciente(pacienteService.obterPorID(request.getIdPaciente()));
         agendamento.setEspecialidade(especialidadeService.obterPorID(request.getIdEspecialidade()));
         agendamentoService.update(id, agendamento);
 
