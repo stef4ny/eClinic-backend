@@ -2,12 +2,12 @@ package br.com.eClinic.modelo.agendamento;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
 import org.hibernate.annotations.SQLRestriction;
 
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.paciente.Paciente;
 import br.com.eClinic.modelo.especialidades.Especialidade;
+
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +21,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "Agendamento")
+@Table(name = "agendamento")
 @SQLRestriction("habilitado = true")
 @Builder
 @Getter
@@ -29,6 +29,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Agendamento extends EntidadeAuditavel {
+
 
   @ManyToOne
   private Paciente paciente;
@@ -39,13 +40,11 @@ public class Agendamento extends EntidadeAuditavel {
   @ManyToOne
   private Especialidade especialidade;
 
+
   @Column (nullable = false)
   private LocalDate dataAgendmento;
-
   
   @Column
   private LocalTime horarioAgendamento;
 
- 
-  
 }

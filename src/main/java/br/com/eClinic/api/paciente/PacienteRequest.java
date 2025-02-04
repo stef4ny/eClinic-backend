@@ -59,7 +59,7 @@ public class PacienteRequest {
   public Paciente build() {
 
     return Paciente.builder()
-        .usuario(buildUsuario())
+       .usuario(buildUsuario())
         .nomeCompleto(nomeCompleto)
         .dataNascimento(dataNascimento)
         .email(email)

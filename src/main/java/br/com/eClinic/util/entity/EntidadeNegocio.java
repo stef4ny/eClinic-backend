@@ -24,8 +24,8 @@ public abstract class EntidadeNegocio implements Serializable {
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
    private Long id;
 
-   @JsonIgnore
-   @Column
-   private Boolean habilitado;
+    @JsonIgnore
+    @Column
+    private Boolean habilitado;
 
 }

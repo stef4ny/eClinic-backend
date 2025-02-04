@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import br.com.eClinic.modelo.agendamento.Agendamento;
 import br.com.eClinic.modelo.agendamento.AgendamentoService;
 import br.com.eClinic.modelo.especialidades.EspecialidadeService;
@@ -96,17 +95,12 @@ public class AgendamentoController {
            @RequestParam(value = "id", required = false) Long id,
            @RequestParam(value = "nomeCompleto", required = false) String nomeCompleto,
            @RequestParam(value = "nome", required = false) String nome,
-           @RequestParam(value = "dataAgendmento", required = false) LocalDate dataAgendamento,
+           @RequestParam(value = "dataAgendmento", required = false) LocalDate dataAgendmento,
            @RequestParam(value = "horarioAgendamento", required = false) LocalTime horarioAgendamento ) {
 
-       return agendamentoService.filtrarAgendamentos(id, nomeCompleto, nome, dataAgendamento, horarioAgendamento );
+       return agendamentoService.filtrarAgendamentos(id, nomeCompleto, nome, dataAgendmento, horarioAgendamento );
    }
 
 
 
 }
-
-
-
-
-
