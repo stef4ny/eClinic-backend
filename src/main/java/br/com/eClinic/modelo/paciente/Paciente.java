@@ -7,9 +7,12 @@ import java.time.LocalDate;
 import org.hibernate.annotations.SQLRestriction;
 
 import br.com.eClinic.modelo.acesso.Usuario;
+import br.com.eClinic.modelo.medico.TipoUsuario;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -32,6 +35,10 @@ public class Paciente extends EntidadeAuditavel {
   @OneToOne
   @JoinColumn(nullable = false)
   private Usuario usuario;
+
+   @Column(nullable = false)
+   @Enumerated(EnumType.STRING)
+   private TipoUsuario tipo;
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;

@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Data; 
 import lombok.NoArgsConstructor;
 
 @Data
@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteRequest {
+
 
   @NotBlank(message = "O nome é de preenchimento obrigatório")
   @Length(max = 100, message = "O Nome deverá ter no máximo {max} caracteres")
@@ -59,10 +60,10 @@ public class PacienteRequest {
   public Paciente build() {
 
     return Paciente.builder()
-       .usuario(buildUsuario())
+        .usuario(buildUsuario())
         .nomeCompleto(nomeCompleto)
         .dataNascimento(dataNascimento)
-        .email(email)
+        //.email(email)
         .senha(senha)
         .enderecoCidade(enderecoCidade)
         .enderecoUf(enderecoUf)

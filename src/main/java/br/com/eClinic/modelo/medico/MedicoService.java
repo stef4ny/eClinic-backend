@@ -46,6 +46,16 @@ public class MedicoService {
         return repository.findById(id).get();
     }
 
+
+    
+    @Transactional
+        public void delete(Long id) {
+        Medico medico = repository.findById(id).get();
+        medico.setHabilitado(Boolean.FALSE);
+        repository.save(medico);
+   }
+
+
     @Transactional
     public void update(Long id, Medico medicoAlterado) {
 

@@ -16,6 +16,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import br.com.eClinic.modelo.acesso.Perfil;
 import br.com.eClinic.modelo.seguranca.JwtAuthenticationFilter;
 
 
@@ -41,23 +42,48 @@ public class SecurityConfiguration {
             .csrf(c -> c.disable())
             .authorizeHttpRequests(authorize -> authorize
 
-                .requestMatchers(HttpMethod.POST, "/api/pacientes").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/chat").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/medicos").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/auth").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/gerenciadormedicos").permitAll()//remover depois
-                .requestMatchers(HttpMethod.POST, "/api/especialidade").permitAll()//remover depois
-                .requestMatchers(HttpMethod.POST, "/api/gerenciadorPaciente").permitAll()//remover depois
-                .requestMatchers(HttpMethod.POST, "/api/agendamento").permitAll()//remover depois
+                
+               
+            .requestMatchers(HttpMethod.GET, "/api/medicos").hasAnyAuthority(
+                Perfil.ROLE_PACIENTE,
+                Perfil.ROLE_FUNCIONARIO_MEDICO) //Consulta 
+
+.requestMatchers(HttpMethod.POST, "/api/medicos").hasAnyAuthority(
+                Perfil.ROLE_FUNCIONARIO_MEDICO) //Cadastro 
+
+.requestMatchers(HttpMethod.PUT, "/api/medicos/*").hasAnyAuthority(
+                Perfil.ROLE_PACIENTE,
+                Perfil.ROLE_FUNCIONARIO_MEDICO) //Alteração
+
+.requestMatchers(HttpMethod.DELETE, "/api/medicos/*").hasAnyAuthority(
+                Perfil.ROLE_FUNCIONARIO_MEDICO) //Exclusão 
+
+
+                .requestMatchers(HttpMethod.GET, "/api/pacientes").hasAnyAuthority(
+                    Perfil.ROLE_FUNCIONARIO_MEDICO
+                    ) //Consulta 
+
+.requestMatchers(HttpMethod.POST, "/api/pacientes").hasAnyAuthority(
+                   Perfil.ROLE_PACIENTE,
+                   Perfil.ROLE_FUNCIONARIO_MEDICO ) //Cadastro 
+
+.requestMatchers(HttpMethod.PUT, "/api/pacientes/*").hasAnyAuthority(
+                   Perfil.ROLE_PACIENTE,
+                   Perfil.ROLE_FUNCIONARIO_MEDICO
+                   ) //Alteração 
+
+.requestMatchers(HttpMethod.DELETE, "/api/pacientes/*").hasAnyAuthority(
+                    Perfil.ROLE_FUNCIONARIO_MEDICO) //Exclusão 
+
+                    .requestMatchers(HttpMethod.POST, "/api/especialidade").permitAll()//remover depois
+                    .requestMatchers(HttpMethod.POST, "/api/agendamento").permitAll()//remover depois
                 .requestMatchers(HttpMethod.POST, "/api/especialidade/filtrar").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/agendamento/filtrar").permitAll()
-
-                .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()//remover depois, apenas para visulaizar o get no postman
-                .requestMatchers(HttpMethod.GET, "/api/chat").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()//remover depois, apenas para visulaizar o get no postman
-                .requestMatchers(HttpMethod.GET, "/api/gerenciadormedicos").permitAll()//remover depois, apenas para visulaizar o get no postman
                 .requestMatchers(HttpMethod.GET, "/api/especialidade").permitAll()//remover depois, apenas para visulaizar o get no postman
-                .requestMatchers(HttpMethod.GET, "/api/gerenciadorPaciente").permitAll()//remover depois, apenas para visulaizar o get no postman
+
+
+
+            
                 .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/swagger-ui/*").permitAll()
 

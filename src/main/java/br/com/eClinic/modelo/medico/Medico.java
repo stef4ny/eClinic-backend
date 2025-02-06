@@ -8,6 +8,8 @@ import br.com.eClinic.modelo.especialidades.Especialidade;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
@@ -35,6 +37,10 @@ public class Medico extends EntidadeAuditavel {
   @OneToOne
   @JoinColumn(nullable = false)
   private Usuario usuario;
+
+   @Column(nullable = false)
+   @Enumerated(EnumType.STRING)
+   private TipoUsuario tipo;
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;

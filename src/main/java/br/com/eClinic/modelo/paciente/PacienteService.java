@@ -55,6 +55,13 @@ public class PacienteService {
         emailService.enviarEmailTexto(paciente.getEmail(), "eClinc Recuperação de senha", "http://localhost:5173/recuperaçãodesenha");
     }
 
+     @Transactional
+        public void delete(Long id) {
+        Paciente paciente = repository.findById(id).get();
+        paciente.setHabilitado(Boolean.FALSE);
+        repository.save(paciente);
+   }
+
     public List<Paciente> listarTodos() {
 
         return repository.findAll();
