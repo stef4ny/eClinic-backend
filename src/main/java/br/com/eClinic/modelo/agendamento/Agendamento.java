@@ -40,7 +40,6 @@ public class Agendamento extends EntidadeAuditavel {
   @ManyToOne
   private Especialidade especialidade;
 
-
   @Column (nullable = false)
   private LocalDate dataAgendmento;
   

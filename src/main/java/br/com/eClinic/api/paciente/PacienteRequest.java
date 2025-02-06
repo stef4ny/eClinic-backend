@@ -63,7 +63,7 @@ public class PacienteRequest {
         .usuario(buildUsuario())
         .nomeCompleto(nomeCompleto)
         .dataNascimento(dataNascimento)
-        //.email(email)
+        .email(email)
         .senha(senha)
         .enderecoCidade(enderecoCidade)
         .enderecoUf(enderecoUf)

@@ -42,18 +42,13 @@ public class PacienteController {
     @PostMapping
     public ResponseEntity<Paciente> save(@RequestBody @Valid PacienteRequest 
     request) {
-
-
         Paciente paciente = pacienteService.save( request.build());
 
-        if (paciente.getTipo().equals(TipoUsuario.PACIENTE)) {
+        /*if (paciente.getTipo().equals(TipoUsuario.PACIENTE)) {
         paciente.getUsuario().getRoles().add(new Perfil(Perfil.ROLE_PACIENTE));
-        } 
-
+        } */
 
         return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
-
-
     }
 
     @PutMapping("/{id}")

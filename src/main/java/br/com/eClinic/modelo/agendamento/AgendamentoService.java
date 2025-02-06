@@ -10,10 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 // import br.com.eClinic.service.EmailService;  comentado para sendEmail
-
-
-
-
 @Service
 public class AgendamentoService {
   
@@ -44,12 +40,8 @@ public class AgendamentoService {
         agendamento.setDataAgendmento(agendamentoAlterado.getDataAgendmento());
         agendamento.setHorarioAgendamento(agendamentoAlterado.getHorarioAgendamento());
 
-
-    
-
         repository.save(agendamento);
     }
-
 
     @Transactional
         public void delete(Long id) {
@@ -57,8 +49,6 @@ public class AgendamentoService {
         Agendamento.setHabilitado(Boolean.FALSE);
         repository.save(Agendamento);
    }
-
-
 
   public List<Agendamento> filtrarAgendamentos(Long id, String nomeCompleto, String nome, LocalDate dataAgendamento, LocalTime horarioAgendamento) {
 

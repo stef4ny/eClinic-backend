@@ -36,9 +36,9 @@ public class Paciente extends EntidadeAuditavel {
   @JoinColumn(nullable = false)
   private Usuario usuario;
 
-   @Column(nullable = false)
+   /*@Column(nullable = false)
    @Enumerated(EnumType.STRING)
-   private TipoUsuario tipo;
+   private TipoUsuario tipo;*/
 
   @Column(nullable = false, length = 100)
   private String nomeCompleto;

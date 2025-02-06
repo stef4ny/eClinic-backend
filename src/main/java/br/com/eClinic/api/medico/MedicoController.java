@@ -42,9 +42,9 @@ public class MedicoController {
 
         Medico medicoNovo = request.build();
 
-            if (medicoNovo.getTipo().equals(TipoUsuario.ADMINISTRADOR)) {
+            /*if (medicoNovo.getTipo().equals(TipoUsuario.ADMINISTRADOR)) {
                 medicoNovo.getUsuario().getRoles().add(new Perfil(Perfil.ROLE_FUNCIONARIO_MEDICO));
-            } /*else if (medicoNovo.getTipo().equals(TipoUsuario.MEDICO)) {
+            } else if (medicoNovo.getTipo().equals(TipoUsuario.MEDICO)) {
                 medicoNovo.getUsuario().getRoles().add(new Perfil(Perfil.ROLE_FUNCIONARIO_USER));
            }*/
 

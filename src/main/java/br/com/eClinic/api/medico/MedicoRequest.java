@@ -66,7 +66,7 @@ public class MedicoRequest {
         .usuario(buildUsuario())
         .nomeCompleto(nomeCompleto)
         .dataNascimento(dataNascimento)
-        //.email(email)
+        .email(email)
         .senha(senha)
         .enderecoCidade(enderecoCidade)
         .enderecoUf(enderecoUf)
