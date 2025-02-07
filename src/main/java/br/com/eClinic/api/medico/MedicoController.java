@@ -81,4 +81,10 @@ public class MedicoController {
        return ResponseEntity.ok().build();
    }
 
+   @GetMapping("/especialidade/{idEspecialidade}")
+public ResponseEntity<List<Medico>> listarPorEspecialidade(@PathVariable Long idEspecialidade) {
+    List<Medico> medicos = medicoService.listarPorEspecialidade(idEspecialidade);
+    return ResponseEntity.ok(medicos);
+}
+
 }

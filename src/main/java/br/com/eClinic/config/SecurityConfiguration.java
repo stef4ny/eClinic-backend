@@ -48,11 +48,13 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/api/agendamento").permitAll()// remover depois
                         .requestMatchers(HttpMethod.POST, "/api/especialidade/filtrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/agendamento/filtrar").permitAll()
-
+                        .requestMatchers(HttpMethod.POST, "/api/medicos").permitAll()
+                        
                         .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()// remover depois, apenas para
                                                                                       // visulaizar o get no postman
                         .requestMatchers(HttpMethod.GET, "/api/chat").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()// remover depois, apenas para
+                        .requestMatchers(HttpMethod.GET, "/api/medicos/especialidade/*").permitAll()// remover depois, apenas para
                                                                                     // visulaizar o get no postman
                         .requestMatchers(HttpMethod.GET, "/api/gerenciadormedicos").permitAll()// remover depois, apenas
                                                                                                // para visulaizar o get

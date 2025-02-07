@@ -22,6 +22,10 @@ public class MedicoService {
     @Autowired
     private PerfilRepository perfilUsuarioRepository;
 
+    public List<Medico> listarPorEspecialidade(Long idEspecialidade) {
+        return repository.findByEspecialidadeId(idEspecialidade);
+    }
+
     @Transactional
     public Medico save(Medico medico) {
 
