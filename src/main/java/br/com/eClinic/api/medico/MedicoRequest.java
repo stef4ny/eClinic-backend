@@ -52,6 +52,9 @@ public class MedicoRequest {
   @NotBlank(message = "Uso do Crm obrigatorio!")
   @Length(min = 10, max = 10, message = "O Crm deverá ter no máximo {max} caracteres")
   private String crm;
+  
+  @NotBlank(message = "Necessario link do meet")
+  private String linkMeet;
 
   public Usuario buildUsuario() {
     return Usuario.builder()
@@ -72,6 +75,7 @@ public class MedicoRequest {
         .enderecoUf(enderecoUf)
         .descricao(descricao)
         .crm(crm)
+        .linkMeet(linkMeet)
         .build();
 
   }

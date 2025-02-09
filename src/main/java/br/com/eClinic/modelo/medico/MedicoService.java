@@ -72,6 +72,7 @@ public class MedicoService {
         medico.setEnderecoCidade(medicoAlterado.getEnderecoCidade());
         medico.setDescricao(medicoAlterado.getDescricao());
         medico.setCrm(medicoAlterado.getCrm());
+        medico.setLinkMeet(medicoAlterado.getLinkMeet());
 
         repository.save(medico);
     }

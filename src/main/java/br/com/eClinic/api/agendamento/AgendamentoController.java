@@ -64,6 +64,11 @@ public class AgendamentoController {
         return agendamentoService.listarTodos();
     }
 
+    @GetMapping("/listarTodosPorCpf/{cpf}")
+    public List<Agendamento> listarTodosPorCpf(@PathVariable String cpf) {
+    return agendamentoService.listarTodosPorCpf(cpf);
+}
+
     @GetMapping("/{id}")
         public Agendamento obterPorID(@PathVariable Long id) {
         return agendamentoService.obterPorID(id);

@@ -66,4 +66,7 @@ public class Medico extends EntidadeAuditavel {
   @Column(nullable = false, unique = true)
   private String crm;
 
+  @Column(nullable = false)
+  private String linkMeet;
+
 }

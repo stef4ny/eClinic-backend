@@ -27,6 +27,10 @@ public class AgendamentoService {
         return repository.findAll();
     }
 
+    public List<Agendamento> listarTodosPorCpf(String cpf) {
+        return repository.findAllporCpf(cpf);
+    }
+
     public Agendamento obterPorID(Long id) {
         return repository.findById(id).get();
     }

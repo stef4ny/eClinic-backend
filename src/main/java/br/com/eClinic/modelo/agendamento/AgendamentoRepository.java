@@ -27,5 +27,9 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
       @Query(value = "SELECT a FROM Agendamento a WHERE a.dataAgendmento = :dataAgendmento AND a.horarioAgendamento = :horarioAgendamento ")
       List<Agendamento> consultarPorDataEHora(LocalDate dataAgendmento, LocalTime horarioAgendamento ); // data e hora 
-  
+      
+      @Query("SELECT a FROM Agendamento a WHERE a.paciente.cpf = :cpf")
+      List<Agendamento> findAllporCpf(@Param("cpf") String cpf);
+
+
 }

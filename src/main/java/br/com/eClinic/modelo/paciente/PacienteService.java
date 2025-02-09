@@ -71,4 +71,10 @@ public class PacienteService {
 
         return repository.findById(id).get();
     }
+
+    public Paciente obterPorCpf(String cpf) {
+
+        return repository.buscarPorCpf(cpf);
+    }
+
 }

@@ -39,6 +39,11 @@ public class PacienteController {
         return pacienteService.obterPorID(id);
     }
 
+    @GetMapping("/buscarPorCpf/{cpf}")
+    public Paciente obterPorCpf(@PathVariable String cpf) {
+        return pacienteService.obterPorCpf(cpf);
+    }
+
     @PostMapping
     public ResponseEntity<Paciente> save(@RequestBody @Valid PacienteRequest 
     request) {

@@ -49,11 +49,15 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/api/especialidade/filtrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/agendamento/filtrar").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/medicos").permitAll()
+
                         
+                        .requestMatchers(HttpMethod.GET, "/api/agendamento/listarTodosPorCpf/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()// remover depois, apenas para
+                        .requestMatchers(HttpMethod.GET, "/api/pacientes/buscarPorCpf/*").permitAll()
                                                                                       // visulaizar o get no postman
                         .requestMatchers(HttpMethod.GET, "/api/chat").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()// remover depois, apenas para
+                        .requestMatchers(HttpMethod.GET, "/api/medicos/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/medicos/especialidade/*").permitAll()// remover depois, apenas para
                                                                                     // visulaizar o get no postman
                         .requestMatchers(HttpMethod.GET, "/api/gerenciadormedicos").permitAll()// remover depois, apenas
@@ -75,6 +79,10 @@ public class SecurityConfiguration {
 
                         .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/*").permitAll()
+
+                        .requestMatchers(HttpMethod.DELETE, "/api/agendamento/*").permitAll()
+
+                        .requestMatchers(HttpMethod.PUT, "/api/medicos/*").permitAll()
 
                         .anyRequest().authenticated()
 
