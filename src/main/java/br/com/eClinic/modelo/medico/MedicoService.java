@@ -50,6 +50,10 @@ public class MedicoService {
         return repository.findById(id).get();
     }
 
+    public Medico obterPorCrm(String crm) {
+
+        return repository.findByCrm(crm);
+    }
 
     
     @Transactional

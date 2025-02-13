@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface MedicoRepository  extends JpaRepository<Medico, Long> {
 
     List<Medico> findByEspecialidadeId(Long idEspecialidade);
+
+    Medico findByCrm(String crm);
   
 }
 

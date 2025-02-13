@@ -52,8 +52,10 @@ public class SecurityConfiguration {
 
                         
                         .requestMatchers(HttpMethod.GET, "/api/agendamento/listarTodosPorCpf/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/agendamento/listarTodosPorCrm/*").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/pacientes").permitAll()// remover depois, apenas para
                         .requestMatchers(HttpMethod.GET, "/api/pacientes/buscarPorCpf/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/medicos/buscarPorCrm/*").permitAll()
                                                                                       // visulaizar o get no postman
                         .requestMatchers(HttpMethod.GET, "/api/chat").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/medicos").permitAll()// remover depois, apenas para
@@ -83,6 +85,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.DELETE, "/api/agendamento/*").permitAll()
 
                         .requestMatchers(HttpMethod.PUT, "/api/medicos/*").permitAll()
+                        
 
                         .anyRequest().authenticated()
 

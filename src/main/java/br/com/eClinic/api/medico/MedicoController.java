@@ -65,6 +65,11 @@ public class MedicoController {
         return medicoService.obterPorID(id);
     }
 
+    @GetMapping("/buscarPorCrm/{crm}")
+    public Medico obterPorID(@PathVariable String crm) {
+        return medicoService.obterPorCrm(crm);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Medico> update(@PathVariable("id") Long id, @RequestBody MedicoRequest request) {
 

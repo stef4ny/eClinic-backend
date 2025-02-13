@@ -31,5 +31,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
       @Query("SELECT a FROM Agendamento a WHERE a.paciente.cpf = :cpf")
       List<Agendamento> findAllporCpf(@Param("cpf") String cpf);
 
+      @Query("SELECT a FROM Agendamento a WHERE a.medico.crm = :crm")
+      List<Agendamento> findAllPorCrm(@Param("crm") String crm);
 
 }
