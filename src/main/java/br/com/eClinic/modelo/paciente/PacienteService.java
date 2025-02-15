@@ -41,18 +41,31 @@ public class PacienteService {
 
     @Transactional
     public void update(Long id, Paciente pacienteAlterado) {
-
-        Paciente paciente = repository.findById(id).get();
+        Paciente paciente = repository.findById(id).orElseThrow(() -> new RuntimeException("Paciente não encontrado"));
+    
+        boolean senhaAlterada = !paciente.getSenha().equals(pacienteAlterado.getSenha());
+    
         paciente.setNomeCompleto(pacienteAlterado.getNomeCompleto());
         paciente.setDataNascimento(pacienteAlterado.getDataNascimento());
         paciente.setEmail(pacienteAlterado.getEmail());
         paciente.setCpf(pacienteAlterado.getCpf());
-        paciente.setSenha(pacienteAlterado.getSenha());
         paciente.setEnderecoCidade(pacienteAlterado.getEnderecoCidade());
         paciente.setEnderecoUf(pacienteAlterado.getEnderecoUf());
-
+    
+        if (senhaAlterada) {
+            paciente.setSenha(pacienteAlterado.getSenha());
+        }
+    
         repository.save(paciente);
-        emailService.enviarEmailTexto(paciente.getEmail(), "eClinc Recuperação de senha", "http://localhost:5173/recuperaçãodesenha");
+    
+        // Envia o e-mail apenas se a senha foi alterada
+        if (senhaAlterada) {
+            emailService.enviarEmailTexto(
+                paciente.getEmail(),
+                "eClinic - Recuperação de senha",
+                "http://localhost:5173/recuperaçãodesenha"
+            );
+        }
     }
 
      @Transactional
