@@ -7,12 +7,12 @@ import java.time.LocalDate;
 import org.hibernate.annotations.SQLRestriction;
 
 import br.com.eClinic.modelo.acesso.Usuario;
-import br.com.eClinic.modelo.medico.TipoUsuario;
+//import br.com.eClinic.modelo.medico.TipoUsuario;
 import br.com.eClinic.util.entity.EntidadeAuditavel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+//import jakarta.persistence.EnumType;
+//import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;

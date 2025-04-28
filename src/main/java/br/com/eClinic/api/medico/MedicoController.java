@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.eClinic.modelo.acesso.Perfil;
+//import br.com.eClinic.modelo.acesso.Perfil;
 import br.com.eClinic.modelo.especialidades.EspecialidadeService;
 import br.com.eClinic.modelo.medico.Medico;
 import br.com.eClinic.modelo.medico.MedicoService;
-import br.com.eClinic.modelo.medico.TipoUsuario;
+//import br.com.eClinic.modelo.medico.TipoUsuario;
 import jakarta.validation.Valid;
 
 @RestController

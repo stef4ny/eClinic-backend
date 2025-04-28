@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.eClinic.modelo.acesso.Perfil;
-import br.com.eClinic.modelo.medico.TipoUsuario;
+//import br.com.eClinic.modelo.acesso.Perfil;
+//import br.com.eClinic.modelo.medico.TipoUsuario;
 import br.com.eClinic.modelo.paciente.Paciente;
 import br.com.eClinic.modelo.paciente.PacienteService;
 import jakarta.validation.Valid;

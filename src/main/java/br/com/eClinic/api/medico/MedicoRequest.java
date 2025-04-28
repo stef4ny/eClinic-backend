@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import br.com.eClinic.modelo.acesso.Perfil;
 import br.com.eClinic.modelo.acesso.Usuario;
 import br.com.eClinic.modelo.medico.Medico;
-import jakarta.persistence.Enumerated;
+//import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
